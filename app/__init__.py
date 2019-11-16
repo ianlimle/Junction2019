@@ -5,6 +5,7 @@ from flask import request, Flask
 from .FaceAnalysis import FacePlus, MergeFace
 import glob
 from models import Product
+from flask_pymongo import PyMongo
 
 import requests
 import time
@@ -12,6 +13,7 @@ import time
 print("Initilizing...")
 ANALYZER = FacePlus()
 MERGER = MergeFace()
+mongo = PyMongo()
 
 ABS_BASE_PATH = "/Users/lionellloh/PycharmProjects/junction_finland/sk5_backend/uploaded_faces"
 
@@ -31,9 +33,9 @@ def create_app(config_name):
     app.config.from_object(app_config[config_name])
     from models import db
     db.init_app(app)
-
+    mongo.init_app(app)
     print(app.config["SQLALCHEMY_DATABASE_URI"])
-
+    face_collection = mongo.db.faces
     migrate = Migrate(app, db)
 
     @app.route("/", methods=["POST", "GET"])
@@ -49,11 +51,17 @@ def create_app(config_name):
 
             file = request.files["image"]
             print(file)
-            unique_id = request.form.get("unique_id")
+            try:
+                unique_id = int(request.form.get("unique_id"))
+
+            except Exception as e:
+                print("Unique_id must be an integer")
             print("Unique_id is ", unique_id)
+
             filename = str(unique_id) + ".jpg"
 
             filename_full = FOLDER_NAME + "/" + filename
+            face_collection.insert(dict(face_id=unique_id, file_path=filename_full, stage = 1))
 
             file.save(filename_full)
             # TODO: Delete once upload is complete
@@ -68,7 +76,7 @@ def create_app(config_name):
 
     @app.route('/image/analyse/<int:unique_id>', methods=["GET"])
     def analyse_image(unique_id):
-        print(unique_id)
+        print("Analyese ", unique_id)
         if unique_id is None:
             return dict(message="unique_id cannot be blank"), 400
 
@@ -78,16 +86,26 @@ def create_app(config_name):
 
         query_file_name = get_full_file_path(unique_id)
         ANALYZER.file = query_file_name
+        print("Sending Analyze API call to F++")
         ret = ANALYZER.run()
         print("RET", ret)
         severity = ret[0][0]
         bounding_box = ret[0][1]
         gender = ret[1]
 
-        return dict(condition="Acne",
+        # face_collection.
+        output =  dict(condition="Acne",
                     severity = severity,
                     bounding_box = bounding_box,
-                    gender = gender), 200
+                    gender = gender,
+                    stage = 2)
+
+        updated = face_collection.find_one_and_update({"face_id": unique_id},
+                                         {"$set": output}, upsert=True)
+
+        print(updated)
+
+        return output, 200
 
     @app.route('/image/products/<int:unique_id>', methods=["GET"])
     def get_products(unique_id):
@@ -95,7 +113,15 @@ def create_app(config_name):
         products = Product.find_by_severity(1)[:3]
         product_obj_list = [p.serialize() for p in products]
 
-        return dict(data = product_obj_list), 200
+        updated = face_collection.find_one_and_update({"face_id": unique_id},
+                                                      {"$set": {
+                                                          "recommended_products" : product_obj_list,
+                                                          "stage": 3
+                                                      }}, upsert=True)
+        output = dict(data = product_obj_list)
+        print(output)
+
+        return output, 200
 
 
     @app.route('/image/merge/<int:unique_id>', methods = ["GET"])
@@ -111,17 +137,21 @@ def create_app(config_name):
         elif gender == "Male":
             MODEL_FACE_PATH = "/Users/lionellloh/PycharmProjects/junction_finland/sk5_backend/model_faces/male_face.jpg"
 
-        MERGER.template_path = MODEL_FACE_PATH
-        MERGER.merge_path = "/Users/lionellloh/PycharmProjects/junction_finland/sk5_backend/output_faces"
-        rectangle_box = [-7, 46, 322, 322]
-        MERGER.template_rectangle = "{}, {}, {}, {}".format(rectangle_box[0], rectangle_box[1], rectangle_box[2],
-                                                           rectangle_box[3])
-        print(MERGER.template_rectangle)
-        MERGER.run()
+        # MERGER.template_path = get_full_file_path(unique_id)
+        MERGER.template_path = "/Users/lionellloh/Desktop/acne.jpg"
+        print(get_full_file_path(unique_id))
+        MERGER.merge_path = MODEL_FACE_PATH
+        rectangle_box = [70,80,100,100]
+        MERGER.template_rectangle = "{},{},{},{}".format(rectangle_box[0], rectangle_box[1], rectangle_box[2],
+                                                            rectangle_box[3])
 
-        # return dict(message= "Upload success"), 200
-
-
+        merged_image = MERGER.run()
+        updated = face_collection.find_one_and_update({"face_id": unique_id},
+                                                      {"$set": {
+                                                          "merged_image": merged_image,
+                                                          "stage": 4
+                                                      }}, upsert=True)
+        return {"merged_image": merged_image}, 200
 
 
     return app

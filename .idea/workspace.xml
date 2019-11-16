@@ -2,13 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3927fe1a-f421-42ba-8f35-b89ceea3e415" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/scripts/workers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/FaceAnalysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/FaceAnalysis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/upload_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/upload_file.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_faces/1573926635775368.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_faces/1573926719420815.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_faces/194832.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploaded_faces/20191116214411.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploaded_faces/20191116214514.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploaded_faces/20191116215656.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploaded_faces/20191116220007.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploaded_faces/20191116220122.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploaded_faces/20191116220230.jpg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,9 +25,9 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/sk5_backend$insert_script.coverage" NAME="insert_script Coverage Results" MODIFIED="1573912362448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/sk5_backend$Flask__app___init___py_create_app___1_.coverage" NAME="Flask (app/__init__.py:create_app) (1) Coverage Results" MODIFIED="1573916767597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/sk5_backend$upload_file.coverage" NAME="upload_file Coverage Results" MODIFIED="1573934187398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
+    <SUITE FILE_PATH="coverage/sk5_backend$upload_file.coverage" NAME="upload_file Coverage Results" MODIFIED="1573936356774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/sk5_backend$Flask__app___init___py_create_app_.coverage" NAME="Flask (app/__init__.py:create_app) Coverage Results" MODIFIED="1573915735010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/sk5_backend$Flask_Run.coverage" NAME="Flask Run Coverage Results" MODIFIED="1573930783457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/sk5_backend$Flask_Run.coverage" NAME="Flask Run Coverage Results" MODIFIED="1573939187307" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/sk5_backend$sk5_backend.coverage" NAME="sk5_backend Coverage Results" MODIFIED="1573900956588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="FUSProjectUsageTrigger">
@@ -65,85 +71,122 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="16" />
-          <entry key="py" value="5195" />
+          <entry key="py" value="6451" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="16" />
-          <entry key="Python" value="5195" />
+          <entry key="Python" value="6451" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="jpg" value="42" />
-          <entry key="py" value="9" />
+          <entry key="jpg" value="50" />
+          <entry key="py" value="15" />
+          <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Image" value="42" />
-          <entry key="Python" value="9" />
+          <entry key="Image" value="50" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Python" value="15" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="80" column="24" lean-forward="true" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
+            <state relative-caret-position="35">
+              <caret line="78" column="24" selection-start-line="78" selection-start-column="24" selection-end-line="78" selection-end-column="24" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
-                <marker date="1573934349664" expanded="true" signature="444:713" ph="..." />
-                <marker date="1573934349664" expanded="true" signature="741:742" ph="..." />
-                <marker date="1573934349664" expanded="true" signature="1011:3962" ph="..." />
-                <marker date="1573934349664" expanded="true" signature="1126:1127" ph="..." />
-                <marker date="1573934349664" expanded="true" signature="3017:3074" ph="..." />
+                <marker date="1573942721880" expanded="true" signature="496:765" ph="..." />
+                <marker date="1573942721880" expanded="true" signature="793:794" ph="..." />
+                <marker date="1573942721880" expanded="true" signature="1122:5440" ph="..." />
+                <marker date="1573942721880" expanded="true" signature="1237:1238" ph="..." />
+                <marker date="1573942721880" expanded="true" signature="4093:4150" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/FaceAnalysis.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/workers.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uploaded_faces/20191117001525.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uploaded_faces/20191117001652.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Envs/sk5/lib/python3.7/site-packages/pymongo/collection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="76" column="24" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
+            <state relative-caret-position="-1357">
+              <caret line="3023" column="8" selection-start-line="3023" selection-start-column="8" selection-end-line="3023" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Output.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="31" column="52" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <marker date="1573939514223" expanded="true" signature="117:118" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uploaded_faces/20191116215656.jpg">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uploaded_faces/20191116214514.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uploaded_faces/20191116214411.jpg">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/scripts/insert_script.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="49">
+              <caret line="12" column="17" selection-start-line="11" selection-end-line="13" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/upload_file.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="46" column="19" lean-forward="true" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
+            <state relative-caret-position="160">
+              <caret line="39" column="16" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="52" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <marker date="1573934187387" expanded="false" signature="183:184" ph="..." />
-                <marker date="1573934187387" expanded="true" signature="183:191" ph="..." />
-                <marker date="1573934187387" expanded="true" signature="456:831" ph="..." />
+                <marker date="1573936356766" expanded="false" signature="183:184" ph="..." />
+                <marker date="1573936356766" expanded="true" signature="183:191" ph="..." />
+                <marker date="1573936356766" expanded="true" signature="456:835" ph="..." />
               </folding>
             </state>
           </provider>
@@ -170,6 +213,14 @@
       <find>file_name</find>
       <find>200</find>
       <find>upload</find>
+      <find>return</find>
+      <find>json.dumps</find>
+      <find>insert</find>
+      <find>face</find>
+      <find>template_rec</find>
+      <find>find</find>
+      <find>find_one</find>
+      <find>products/</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/..</dir>
@@ -185,14 +236,15 @@
         <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/run.py" />
         <option value="$PROJECT_DIR$/insert_script.py" />
-        <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/app/faceplus.py" />
         <option value="$PROJECT_DIR$/app/faceplus_nov.py" />
         <option value="$PROJECT_DIR$/app/models.py" />
-        <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/scripts/upload_file.py" />
-        <option value="$PROJECT_DIR$/app/__init__.py" />
+        <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/app/FaceAnalysis.py" />
+        <option value="$PROJECT_DIR$/models.py" />
+        <option value="$PROJECT_DIR$/scripts/workers.py" />
+        <option value="$PROJECT_DIR$/app/__init__.py" />
       </list>
     </option>
   </component>
@@ -253,6 +305,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="models&#9;FILE&#9;file:///Users/lionellloh/PycharmProjects/junction_finland/sk5_backend/models.py" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -495,47 +548,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Envs/sk5/lib/python3.7/site-packages/sqlalchemy/engine/url.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2520">
-          <caret line="171" selection-start-line="171" selection-end-line="171" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model_faces/female_face.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploaded_faces/1573916227626443.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$USER_HOME$/Envs/sk5/lib/python3.7/site-packages/requests/api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
           <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/insert_script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -588,16 +604,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-          <folding>
-            <marker date="1573930418721" expanded="true" signature="117:118" ph="..." />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/uploaded_faces/1573931383331341.jpg">
       <provider selected="true" editor-type-id="images" />
@@ -657,49 +663,113 @@
     <entry file="file://$PROJECT_DIR$/uploaded_faces/Lionell.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/upload_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="46" column="19" lean-forward="true" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <marker date="1573934187387" expanded="false" signature="183:184" ph="..." />
-            <marker date="1573934187387" expanded="true" signature="183:191" ph="..." />
-            <marker date="1573934187387" expanded="true" signature="456:831" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploaded_faces/20191116214514.jpg">
+    <entry file="file://$PROJECT_DIR$/uploaded_faces/20191116214411.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/uploaded_faces/20191116214411.jpg">
+    <entry file="file://$PROJECT_DIR$/uploaded_faces/20191116214514.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/uploaded_faces/20191116215656.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/__init__.py">
+    <entry file="file://$PROJECT_DIR$/uploaded_faces/20191116220007.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploaded_faces/20191116220230.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Output.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/insert_script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="80" column="24" lean-forward="true" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
+        <state relative-caret-position="49">
+          <caret line="12" column="17" selection-start-line="11" selection-end-line="13" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
-            <marker date="1573934349664" expanded="true" signature="444:713" ph="..." />
-            <marker date="1573934349664" expanded="true" signature="741:742" ph="..." />
-            <marker date="1573934349664" expanded="true" signature="1011:3962" ph="..." />
-            <marker date="1573934349664" expanded="true" signature="1126:1127" ph="..." />
-            <marker date="1573934349664" expanded="true" signature="3017:3074" ph="..." />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/upload_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="39" column="16" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1573936356766" expanded="false" signature="183:184" ph="..." />
+            <marker date="1573936356766" expanded="true" signature="183:191" ph="..." />
+            <marker date="1573936356766" expanded="true" signature="456:835" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="31" column="52" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
+          <folding>
+            <marker date="1573939514223" expanded="true" signature="117:118" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploaded_faces/1234.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/FaceAnalysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="76" column="24" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
+        <state relative-caret-position="138">
+          <caret line="80" column="8" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Envs/sk5/lib/python3.7/site-packages/pymongo/collection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1357">
+          <caret line="3023" column="8" selection-start-line="3023" selection-start-column="8" selection-end-line="3023" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploaded_faces/20191116220921.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploaded_faces/20191116221058.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploaded_faces/20191116221751.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploaded_faces/20191117001525.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploaded_faces/20191117001652.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/workers.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="78" column="24" selection-start-line="78" selection-start-column="24" selection-end-line="78" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+            <marker date="1573942721880" expanded="true" signature="496:765" ph="..." />
+            <marker date="1573942721880" expanded="true" signature="793:794" ph="..." />
+            <marker date="1573942721880" expanded="true" signature="1122:5440" ph="..." />
+            <marker date="1573942721880" expanded="true" signature="1237:1238" ph="..." />
+            <marker date="1573942721880" expanded="true" signature="4093:4150" ph="..." />
           </folding>
         </state>
       </provider>

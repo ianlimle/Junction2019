@@ -26,9 +26,10 @@ class Product(db.Model):
     def serialize(self):
         return dict(
             id = self.id,
-            name = self.name,
+            name = self.description,
             price = self.price,
-            picture = self.picture
+            picture = self.picture,
+            ingredients = "Beetroot, Carrot, Hummus"
         )
 
     def save_to_db(self):

@@ -95,7 +95,7 @@ class MergeFace():
     def __init__(self, **kwargs):
         self.template_path = ""
         self.merge_path = ""
-        self.template_rectangle = ""
+        self.template_rectangle = None
     
     def analyse_face(self, template_path, merge_path, template_rectangle):
         http_url = 'https://api-us.faceplusplus.com/imagepp/v1/mergeface'
@@ -123,21 +123,26 @@ class MergeFace():
             res = requests.post(http_url, data=payload)
             #get response
             qrcont = res.json()
+            print(dict(qrcont).items())
             # print(qrcont['result'])
-            text_file = open("Output.txt", "w")
-            text_file.write(qrcont['result'])
-            text_file.close()    
-            return qrcont
+            # text_file = open("Output.txt", "w")
+            # print(qrcont)
+            # text_file.write(qrcont['result'])
+            # text_file.close()
+            return qrcont["result"]
  
         except Exception as e:
             print('Error:')
             print(e)
     
     def run(self):
+        print("self.template_rect", self.template_rectangle, type(self.template_rectangle))
         analyse_return = self.analyse_face(
             template_path = self.template_path,
             merge_path = self.merge_path,
             template_rectangle =  self.template_rectangle)
+
+        return analyse_return
 
 # Analyse from single image
 if __name__ == "__main__":

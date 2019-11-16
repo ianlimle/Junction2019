@@ -20,7 +20,7 @@ def get_analysis(UNIQUE_ID):
     except Exception as e:
         print(str(e))
 
-    return r.text
+    return r.json()
 
 def get_products(UNIQUE_ID):
     URL = f"http://127.0.0.1:5000/image/products/{UNIQUE_ID}"
@@ -31,7 +31,7 @@ def get_products(UNIQUE_ID):
     except Exception as e:
         print(str(e))
 
-    return r.text
+    return r.json()
 
 
 
@@ -43,7 +43,12 @@ if __name__ == "__main__":
     # print(r.text)
 
     unique_id = 1234
-    print(upload_face(FILE_PATH, unique_id))
+    ret_1 = upload_face(FILE_PATH, unique_id)
+
     # time.sleep(1)
-    print(get_analysis(unique_id))
+    ret_2 = get_analysis(unique_id)
+    print(ret_2)
+
+    ret_3 = get_products(unique_id)
+    print(ret_3)
 
