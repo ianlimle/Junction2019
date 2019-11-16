@@ -66,15 +66,15 @@ class FacePlus():
             darkcircle_score = score['faces'][0]['attributes']['skinstatus']['dark_circle']
             stain_score = score['faces'][0]['attributes']['skinstatus']['stain']    
             final_score = int(round((acne_score + darkcircle_score + stain_score)/3))
-            # print("Final score", final_score)
+            print("Final score", final_score)
             # print("acne score", acne_score)
             # print("darkcircle score", darkcircle_score)
             # print("stain score", stain_score)
 
             if final_score >= 20:
-                return 0, bounding_box_coordinates
-            else:
                 return 1, bounding_box_coordinates
+            else:
+                return 0, bounding_box_coordinates
         except Exception as e:
             print("Error", str(e))
     
