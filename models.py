@@ -15,12 +15,15 @@ class Product(db.Model):
     url = db.Column(db.String(500), unique=True)
     price = db.Column(db.Integer)
     currency_id = db.Column(db.Integer)
-    problem = db.Column(db.String(100), nullable=True)
+    condition = db.Column(db.String(100), nullable=True)
     severity = db.Column(db.String(10), nullable=True)
 
 
-    def serialize(self):
+    @classmethod
+    def find_by_severity(cls, severity):
+        return cls.query.filter_by().all()
 
+    def serialize(self):
         return dict(
             id = self.id,
             name = self.name,

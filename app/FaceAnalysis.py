@@ -60,16 +60,16 @@ class FacePlus():
             bb_width = score['faces'][0]['face_rectangle']['width']            
             bb_height = score['faces'][0]['face_rectangle']['height']
             bounding_box_coordinates = bb_top, bb_left, bb_width, bb_height
-            print("bounding box coordinates", bounding_box_coordinates)
+            # print("bounding box coordinates", bounding_box_coordinates)
 
             acne_score = score['faces'][0]['attributes']['skinstatus']['acne']
             darkcircle_score = score['faces'][0]['attributes']['skinstatus']['dark_circle']
             stain_score = score['faces'][0]['attributes']['skinstatus']['stain']    
             final_score = int(round((acne_score + darkcircle_score + stain_score)/3))
-            print("Final score", final_score)
-            print("acne score", acne_score)
-            print("darkcircle score", darkcircle_score)
-            print("stain score", stain_score)
+            # print("Final score", final_score)
+            # print("acne score", acne_score)
+            # print("darkcircle score", darkcircle_score)
+            # print("stain score", stain_score)
 
             if final_score >= 20:
                 return 0, bounding_box_coordinates
