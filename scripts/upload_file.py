@@ -1,13 +1,18 @@
 import requests
 
-files = {'file': open('../model_faces/female_face.jpg','rb')}
-values = {'DB': 'photcat', 'OUT': 'csv', 'SHORT': 'short'}
+def upload_face(UPLOAD_FILEPATH, UNIQUE_ID, URL = "http://lionellloh-ndls.localhost.run/upload"):
+    descriptor = open(UPLOAD_FILEPATH,'rb')
+    print(descriptor)
+    # files = {'file': descriptor, 'Content-Type': 'image/jpeg'}
+    files = {'image': ("male-lol", descriptor, 'multipart/form-data', {'Expires': '0'})}
+    r = requests.post(URL, files=files, data=dict(unique_id = UNIQUE_ID))
 
-# URL = "https://lionellloh-ndls.localhost.run/upload/"
-URL = "http://127.0.0.1:5000/upload/"
-
-r = requests.post(URL, files=files)
-# r = requests.get("http://127.0.0.1:5000", verify = False)
+    return r
 
 
-print(r.text)
+if __name__ == "__main__":
+    r = upload_face("/Users/lionellloh/PycharmProjects/junction_finland/sk5_backend/model_faces/male_face.jpg", "testinglol6")
+    print(r.status_code)
+    print(r.text)
+
+
