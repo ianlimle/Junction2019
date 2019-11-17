@@ -1,0 +1,371 @@
+#:kivy 2.0.0
+# Python version 3.5.2
+<WindowManager>:
+
+    WebcamWindow:
+    AnalyseWindow:
+    RecommendWindow:
+    BeautifyWindow:
+
+<WebcamWindow>:
+
+    name: "webcam"
+
+    canvas.before:
+        Color:
+            rgba: 255,255,255, 1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size 
+    
+    GridLayout:
+        cols:1
+        rows:2
+
+        BoxLayout:
+            id: app_grid_r1
+            padding: 10, 20, 0, 10
+            # spacing: 10,10
+
+            Image:
+                source: '../resources/images/shopeelogo.png'
+                opacity: 1.0
+                size_hint_y: None
+                pos_hint: {'top': 1.0,  'right': 0}
+                height: dp(77.5)
+                keep_ratio: True
+
+    FloatLayout:
+        Button:
+            text: ""
+            id: va1
+            size_hint: None, None
+            pos_hint: {'top': 0.255, 'right': 0.29}
+            width: 300
+            height: 150
+            keep_ratio: True
+            background_normal: "../resources/images/va1_normal.png"
+            background_down: "../resources/images/va1_pressed.png"
+            on_release:
+                root.btn_pressed()
+            
+
+        Button:
+            id: capture_button
+            text:""
+            pos_hint: {"center_x": 0.5, "center_y": 0.09}
+            size_hint: None, None
+            width: 102
+            height: 105
+            background_normal: "../resources/images/capture_button.png"
+            background_down: "../resources/images/capture_button_pressed.png"                
+            on_release:
+                root.take_pic()
+        
+        Button:
+            id: analyse_button
+            text:""
+            pos_hint: {"center_x": 0.7, "center_y": 0.09}
+            size_hint: None, None
+            width: 200
+            height: 65
+            background_normal: "../resources/images/analyse_button.png"
+            background_down: "../resources/images/analyse_button.png"                
+            on_release:
+                app.root.current = "analyse"
+                      
+
+<AnalyseWindow>:
+
+    name: "analyse"
+
+    canvas.before:
+        Color:
+            rgba: 255,255,255, 1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size 
+    
+    GridLayout:
+        cols:1
+        rows:2
+
+        BoxLayout:
+            id: app_grid_r1
+            padding: 10, 20, 0, 10
+            height : 30
+
+            Image:
+                source: '../resources/images/shopeelogo.png'
+                opacity: 1.0
+                size_hint_y: None
+                pos_hint: {'top': 1.0,  'right': 0}
+                height: dp(77.5)
+                keep_ratio: True
+        
+        GridLayout:
+            size_hint_y : 5
+            cols: 2
+            rows: 1
+            padding : [15,0,0,12]
+            Image:
+                id: pic
+                pos_hint: {'top': 0.6, 'right': 0.6}
+                source: '/home/waihong/Desktop/pic.jpg'
+                keep_ratio: True
+                width : 350
+                #height : 500
+            GridLayout:
+                cols: 1
+                rows: 2
+                Image:
+                    id: condition_pic
+                    keep_ratio: True
+                    width : 250
+                    height : 250
+
+                Label:
+                    id: condition
+                    #pos_hint: {'top': 0.8, 'left': 0.9}
+                    #halign: 'center'
+                    valign: 'middle'
+                    font_name:'../resources/fonts/Roboto-Regular.ttf'
+                    font_size: 30
+                    color: 255,255,255,1
+                
+                    
+
+    FloatLayout:
+
+        Button:
+            text: ""
+            size_hint: None, None
+            pos_hint: {'top': 0.92, 'right': 0.11}      # Top-Left
+            # pos_hint: {'top': 0.065, 'right': 0.09}   # Bottom-Left
+            # pos_hint: {'top': 0.07, 'right': 0.98}    # Bottom-Right
+            width: 57
+            height: 20
+            background_normal: "../resources/images/Folo_Back_Button_Normal.png"
+            background_down: "../resources/images/Folo_Back_Button_Depressed.png"
+            on_release: app.root.current = "webcam"
+        
+        Label :
+            text : "Analysing ..."
+            font_name:'../resources/fonts/Roboto-Regular.ttf'
+            font_size: 25
+            color: 255,255,255,1
+            #height: 1
+            pos_hint: {'top': 1.27, 'right': 2.0} 
+        
+        Button:
+            id: recommend_button
+            text:""
+            size_hint: None, None
+            pos_hint: {'top': 0.12, 'right': 0.85}  
+            width: 170
+            height: 60
+            keep_ratio: True
+            background_normal: "../resources/images/recommend_button.jpg"
+            #background_down: "../resources/images/recommend_button.jpg"                
+            on_release:
+                app.root.current = "recommend"
+            
+<RecommendWindow>:
+    
+    name: "recommend"
+
+    canvas.before:
+        Color:
+            rgba: 255,255,255, 1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    GridLayout:
+        cols:1
+        rows:4
+        padding: 20, 20, 20, 20
+        spacing: 30
+        Image:
+            source: '../resources/images/shopeelogo.png'
+            opacity: 1.0
+            size_hint_y: None
+            pos_hint: {'top': 1.0,  'right': 0}
+            keep_ratio: True 
+        GridLayout:
+            rows : 1
+            cols: 3
+            size_hint_y: None
+            height: 200
+            valign : 'middle'
+            AsyncImage: 
+                #source: 'https://ae01.alicdn.com/kf/H621ebd29b6b24b09873bdc9752444517O/Natural-Rose-Collagen-Mud-Facial-Mask-Powder-At-Home-Free-Shipping.jpg'
+                id: product_pic1
+                keep_ratio: True
+            
+            AsyncImage: 
+                #source: 'https://ae01.alicdn.com/kf/H621ebd29b6b24b09873bdc9752444517O/Natural-Rose-Collagen-Mud-Facial-Mask-Powder-At-Home-Free-Shipping.jpg'
+                id: product_pic2
+                keep_ratio: True
+            
+            AsyncImage: 
+                #source: 'https://ae01.alicdn.com/kf/H621ebd29b6b24b09873bdc9752444517O/Natural-Rose-Collagen-Mud-Facial-Mask-Powder-At-Home-Free-Shipping.jpg'
+                id: product_pic3
+                keep_ratio: True
+
+        GridLayout:
+            rows : 1
+            cols: 3
+            size_hint_y: None
+            height: 240
+            spacing: 50
+
+
+            Label:
+                id: product_name1
+                text : ""
+                font_name:'../resources/fonts/Roboto-Regular.ttf'
+                font_size: 20
+                color: 255,255,255,1
+                text_size: self.width, None
+                size_hint: 1, None
+                height: self.texture_size[1]
+            Label:
+                id: product_name2
+                text : ''
+                font_name:'../resources/fonts/Roboto-Regular.ttf'
+                font_size: 20
+                color: 255,255,255,1
+                text_size: self.width, None
+                size_hint: 1, None
+                height: self.texture_size[1]
+            Label:
+                id: product_name3
+                text : ''
+                font_name:'../resources/fonts/Roboto-Regular.ttf'
+                font_size: 20
+                color: 255,255,255,1
+                text_size: self.width, None
+                size_hint: 1, None
+                height: self.texture_size[1]
+        GridLayout:
+            rows : 1
+            cols: 3
+            size_hint_y: None
+            height: 100
+            padding: 140,0,140,40
+            spacing: 280
+
+            BoxLayout:
+                Button:
+                    id: purchase_button1
+                    text:""
+                    width: 70
+                    height: 70
+                    background_normal: "../resources/images/shopping.png"
+                    background_down: "../resources/images/shopping.png" 
+                    on_release:
+                        app.root.current = "beautify"          
+            BoxLayout:
+                Button:
+                    id: purchase_button2
+                    text:""
+                    width: 70
+                    height: 70
+                    background_normal: "../resources/images/shopping.png"
+                    background_down: "../resources/images/shopping.png"  
+                    on_release:
+                        app.root.current = "beautify"
+            BoxLayout:
+                Button:
+                    id: purchase_button3
+                    text:""
+                    width: 70
+                    height: 70
+                    background_normal: "../resources/images/shopping.png"
+                    background_down: "../resources/images/shopping.png"  
+                    on_release:
+                        app.root.current = "beautify"
+    FloatLayout:
+    
+        Button:
+            text: ""
+            size_hint: None, None
+            pos_hint: {'top': 0.92, 'right': 0.11}      # Top-Left
+            # pos_hint: {'top': 0.065, 'right': 0.09}   # Bottom-Left
+            # pos_hint: {'top': 0.07, 'right': 0.98}    # Bottom-Right
+            width: 57
+            height: 20
+            background_normal: "../resources/images/Folo_Back_Button_Normal.png"
+            background_down: "../resources/images/Folo_Back_Button_Depressed.png"
+            on_release: app.root.current = "webcam" 
+        
+        Button:
+            text: ""
+            id: va2
+            size_hint: None, None
+            pos_hint: {'top': 0.88, 'right': 0.94}
+            width: 300
+            height: 170
+            keep_ratio: True
+            background_normal: "../resources/images/va2_normal.png"
+            background_down: "../resources/images/va2_pressed.png"
+            on_release:
+                root.btn2_pressed()
+
+<BeautifyWindow>:
+    name: "beautify" 
+    
+    canvas.before:
+        Color:
+            rgba: 255,255,255, 1
+
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    GridLayout:
+        rows: 3
+        cols: 1  
+        padding: 30,10,30,10  
+        Image:
+            source: '../resources/images/shopeelogo.png'
+            opacity: 1.0
+            size_hint_y: None
+            pos_hint: {'top': 1.0,  'right': 0}
+            keep_ratio: True
+
+        Label : 
+            size_hint_y: None
+            text : 'How would you look like?'
+            font_name:'../resources/fonts/Roboto-Regular.ttf'
+            font_size: 25
+            color: 255,255,255,1
+
+        Carousel:
+            size_hint_y: None
+            height: 400
+            direction: 'right'
+            min_move: 0.1
+            anim_move_duration: 0.25
+            AsyncImage:
+                id: pic1
+                source: '/home/waihong/Desktop/pic.jpg'
+            AsyncImage:
+                id: pic2
+                #source: '/home/waihong/Desktop/pic2.jpg'
+        
+    FloatLayout:
+
+        Button:
+            text: ""
+            size_hint: None, None
+            pos_hint: {'top': 0.92, 'right': 0.11}      # Top-Left
+            # pos_hint: {'top': 0.065, 'right': 0.09}   # Bottom-Left
+            # pos_hint: {'top': 0.07, 'right': 0.98}    # Bottom-Right
+            width: 57
+            height: 20
+            background_normal: "../resources/images/Folo_Back_Button_Normal.png"
+            background_down: "../resources/images/Folo_Back_Button_Depressed.png"
+            on_release: app.root.current = "webcam" 
