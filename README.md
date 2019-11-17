@@ -2,7 +2,7 @@
  A Personalized Shopping Consultant that reduces mispurchases by diagnosing customer’s needs and recommending curated products
 
 ## Team SK5
-Our solution involves 3 steps: diagnosing customer's needs using computer vision, recommending curated products based on extracted features and virtually places the product on customers.
+Our solution involves 3 steps: diagnosing customer's needs using computer vision, recommending curated products based on extracted features and a virtual placement of the product on customers.
 
 For demonstration purposes, we are only using cosmetics as a case study.
 
@@ -14,7 +14,7 @@ Recommending Curated Products:
 - Match products with the diagnosed skin condition:
 - The curated database was developed from K-means clustering based on the ingredients in each of the products with semi-supervised learning.
 
-Virtually Places Product on Customer:
+Virtual Placement of Product on Customer:
 - The system generates expected customer's facial image after product usage, using the Neural Style Transfer
 
 The entire stack is developed using Kivy which takes advantage of GPU resources to run the Computer Vision algorithms in with low latency, at 24 frames per second. 
