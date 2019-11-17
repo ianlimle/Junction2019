@@ -7,17 +7,12 @@ producer = KafkaProducer(
     ssl_certfile="../../kafka_cred/service.cert",
     ssl_keyfile="../../kafka_cred/service.key",
 )
-import requests
 
-from kafka import KafkaProducer
-from kq import Queue
+for i in range(1, 4):
+    message = "message number {}".format(i)
+    print("Sending: {}".format(message))
+    producer.send("demo-topic", message.encode("utf-8"))
 
-# Set up a Kafka producer.
-# producer = KafkaProducer(bootstrap_servers='127.0.0.1:9092')
+# Force sending of all messages
 
-# Set up a queue.
-queue = Queue(topic='demo-topic', producer=producer)
-
-# Enqueue a function call.
-# job = queue.enqueue(requests.get, 'https://www.google.com')
-job = queue.using(timeout=10, key=b'foo', partition=0).enqueue(requests.get, 'https://www.google.com')
+producer.flush()

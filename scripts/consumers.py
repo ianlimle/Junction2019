@@ -27,16 +27,17 @@ consumer = KafkaConsumer(
 # consumer without actually returning anything
 
 
-worker = Worker(topic='demo-topic', consumer=consumer)
-worker.start()
+# worker = Worker(topic='demo-topic', consumer=consumer)
+# worker.start()
 
 
-# for _ in range(2):
-#     raw_msgs = consumer.poll(timeout_ms=1000)
-#     for tp, msgs in raw_msgs.items():
-#         for msg in msgs:
-#             print("Received: {}".format(msg.value))
-#
-# # Commit offsets so we won't get the same messages again
-#
-# consumer.commit()
+for _ in range(2):
+    raw_msgs = consumer.poll(timeout_ms=1000)
+    print(raw_msgs)
+    for tp, msgs in raw_msgs.items():
+        for msg in msgs:
+            print("Received: {}".format(msg.value))
+
+# Commit offsets so we won't get the same messages again
+
+consumer.commit()
