@@ -33,7 +33,16 @@ def get_products(UNIQUE_ID):
 
     return r.json()
 
+def get_merge(unique_id):
+    URL = f"http://127.0.0.1:5000/image/merge/{unique_id}"
 
+    try:
+        r = requests.get(URL)
+
+    except Exception as e:
+        print(str(e))
+
+    return r.json()
 
 if __name__ == "__main__":
     import time
@@ -51,4 +60,7 @@ if __name__ == "__main__":
 
     ret_3 = get_products(unique_id)
     print(ret_3)
+
+    ret_4 = get_merge("1234")
+    print(len(ret_4["merged_image"]))
 
